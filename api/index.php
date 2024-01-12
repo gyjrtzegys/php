@@ -9,7 +9,7 @@ $main = file_get_contents('https://himera-search.net/report/72a23b6a-d883-4ac9-9
 $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 
 // записи с Кадрами
-echo count($arr_kadry);
+
 for ($i=0;$i<count($arr_kadry);$i++) {
 
 	
@@ -20,6 +20,7 @@ for ($i=0;$i<count($arr_kadry);$i++) {
 		// два массива: заголовок и значение
 		$arr_kadry_title = regParse('<dt>', '</dt>', $element);
 		$arr_kadry_value = regParse('<dd>', '</dd>', $element);
+		print_r($arr_kadry_title);
 		
 			// только 3 необходимые поля
 			for ($y=0;$y<count($arr_kadry_title);$y++) {
