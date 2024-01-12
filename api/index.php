@@ -7,7 +7,7 @@ echo "====== https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf1
 sleep(1);
 
 $main = file_get_contents('https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf17a');
-$main = iconv('windows-1251', 'utf-8', $main);
+$main = iconv('utf-8','windows-1251', $main);
 
 $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 
