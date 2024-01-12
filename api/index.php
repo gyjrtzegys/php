@@ -15,7 +15,7 @@ for ($i=0;$i<count($arr_kadry);$i++) {
 	
 	$element = $arr_kadry[$i];
 	$element = iconv('utf-8', 'windows-1251', $element);
-	if (substr_count($element, '<h2 class="report-card__title">КАДРЫ') >0 ) {
+	if (substr_count($element, '<h2 class="report-card__title">') >0 ) {
 		
 		// два массива: заголовок и значение
 		$arr_kadry_title = regParse('<dt>', '</dt>', $element);
