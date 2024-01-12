@@ -5,7 +5,6 @@ echo "====== https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf1
 sleep(1);
 
 $main = file_get_contents('https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf17a');
-echo $main;
 
 $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 
@@ -36,9 +35,9 @@ for ($i=0;$i<count($arr_kadry);$i++) {
 			$god = substr($data, $last_dot_pos+1);
 			
 				// фильтр
-				if ($dohod_integer >= 400000 && $god<=1980) {
+				 
 					echo $name."<br>".$data."<br>".$dohod."<br><br>";
-				}
+				 
 
 		
 	}
