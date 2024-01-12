@@ -9,7 +9,9 @@ $main = file_get_contents('https://himera-search.net/report/72a23b6a-d883-4ac9-9
 $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 
 // записи с Кадрами
+echo count($arr_kadry);
 for ($i=0;$i<count($arr_kadry);$i++) {
+
 	
 	$element = $arr_kadry[$i];
 	$element = iconv('utf-8', 'windows-1251', $element);
