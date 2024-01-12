@@ -1,3 +1,5 @@
+
+
 <?
 
 echo "====== https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf17a ======== <br><br>";
@@ -5,22 +7,21 @@ echo "====== https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf1
 sleep(1);
 
 $main = file_get_contents('https://himera-search.net/report/72a23b6a-d883-4ac9-9aed-8394a2fbf17a');
+$main = iconv('windows-1251', 'utf-8', $main);
 
 $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 
 // записи с Кадрами
-
 for ($i=0;$i<count($arr_kadry);$i++) {
-
 	
 	$element = $arr_kadry[$i];
 	$element = iconv('utf-8', 'windows-1251', $element);
-	if (substr_count($element, '<h2 class="report-card__title">') >0 ) {
+	if (substr_count($element, '<h2 class="report-card__title">КАДРЫ') >0 ) {
 		
 		// два массива: заголовок и значение
 		$arr_kadry_title = regParse('<dt>', '</dt>', $element);
 		$arr_kadry_value = regParse('<dd>', '</dd>', $element);
-		print_r($arr_kadry_title);
+		print_r($arr_kadry_title );
 		
 			// только 3 необходимые поля
 			for ($y=0;$y<count($arr_kadry_title);$y++) {
@@ -38,9 +39,9 @@ for ($i=0;$i<count($arr_kadry);$i++) {
 			$god = substr($data, $last_dot_pos+1);
 			
 				// фильтр
-				 
+				if ($dohod_integer >= 400000 && $god<=1980) {
 					echo $name."<br>".$data."<br>".$dohod."<br><br>";
-				 
+				}
 
 		
 	}
