@@ -15,7 +15,7 @@ $arr_kadry = regParse('<section class="report-card" id=', '</section>', $main);
 for ($i=0;$i<count($arr_kadry);$i++) {
 	
 	$element = $arr_kadry[$i];
-	$element = iconv('utf-8', 'windows-1251', $element);
+	// $element = iconv('utf-8', 'windows-1251', $element);
 	if (substr_count($element, '<h2 class="report-card__title">КАДРЫ') >0 ) {
 		
 		// два массива: заголовок и значение
